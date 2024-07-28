@@ -62,42 +62,42 @@ const CricketScore: React.FC = () => {
   };
 
   return (
-    <div>
-      <button onClick={fetchLiveMatches} className="pt-7 mb-4 w-full text-gray-400 border-b p-3 border-gray-500 sticky bg-black top-0 ">
+    <div className='w-5/6'>
+      <button onClick={fetchLiveMatches} className=" text-sm sm:text-md p-4 mb-4 w-full text-gray-500 border-b sm:p-3 border-gray-500 sticky bg-black top-0 ">
         Cricket Score
       </button>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {loading && <p className='text-xs text-gray-300'>Loading...</p>}
+      {error && <p className='text-xs text-gray-300'>{error}</p>}
       
-      <div>
+      <div className='flex flex-col justify-center items-center'>
         {matches.length > 0 &&
           matches.map((matchData, index) => (
             <div
             key={index} 
-            className="border p-2 mb-4 rounded-xl bg-black bg-opacity-500 text-white border-gray-500" 
-            style={{ width: '250px', padding: '10px' }} >        
-         
-            <div className="flex items-center mb-2 justify-between">
+            className="w-full border p-3 mb-4 rounded-xl bg-black bg-opacity-500 text-white border-gray-500" 
+            >        
+          {/*  style={{ width: '250px', padding: '10px' }} */}
+            <div className="flex items-center mb-2 justify-between ">
                <div className='flex'>
                <img
                 src={matchData.team_a_img} 
                 alt={`${matchData.team_a} flag`}
-                width={24}
-                height={24}
+                width={20}
+                height={20}
                 className="mr-2 rounded-full"
               />
-              <span>{matchData.team_a_short}</span>
+              <span className='text-xs lg:text-sm'>{matchData.team_a_short}</span>
                </div>
-              <span className="mx-2">vs</span>
+              <span className="text-xs mx-2 ">vs</span>
                  <div className='flex'> 
                  <img
                 src={matchData.team_b_img} 
                 alt={`${matchData.team_b} flag`}
-                width={24}
-                height={24}
+                width={20}
+                height={20}
                 className="mr-2  rounded-full"
                  />
-                 <span> {matchData.team_b_short}</span>
+                 <span className='text-xs lg:text-sm'> {matchData.team_b_short}</span>
                  </div>
             </div>
 
