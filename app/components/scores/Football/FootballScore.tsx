@@ -92,24 +92,24 @@ const FootballScore: React.FC = () => {
   };
 
   return (
-    <div>
-       <button onClick={fetchLiveFootballMatches} className=" pt-6 mb-4 w-full text-gray-400 border-b p-3 border-gray-500 sticky bg-black top-0 ">
+    <div className='w-5/6'>
+       <button onClick={fetchLiveFootballMatches} className="text-sm sm:text-md  p-4 mb-4 w-full text-gray-500 border-b border-gray-500 sticky bg-black top-0 ">
         Football Score
       </button>
 
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-
+      {loading && <p className='text-xs text-gray-300'>Loading...</p>}
+      {error && <p className='text-xs text-gray-300'>{error}</p>}
+     <div className='flex flex-col justify-center items-center '>
       {matches.length > 0 && matches.map((match) => (
-        <div key={match.eventId} className="border p-4 mb-4 rounded-xl border-gray-500" style={{ width: '250px', padding: '10px' }}>
+        <div key={match.eventId} className=" w-full border p-4 mb-4 rounded-xl border-gray-500" >
     
            <p className='text-xs'>Game Time: {match.gameTime}</p>
           <div className="flex items-center mb-2">
-            <img src={match.homeTeam.logoUrl} alt={match.homeTeam.name} className="w-6 h-6 mr-2" />
-            <span className='text-xs'>{match.homeTeam.name} ({match.homeTeam.shortName})</span>
-            <span className="mx-2">vs</span>
-            <img src={match.awayTeam.logoUrl} alt={match.awayTeam.name} className="w-6 h-6 mr-2" />
-            <span className='text-xs'>{match.awayTeam.name} ({match.awayTeam.shortName})</span>
+            <img src={match.homeTeam.logoUrl} alt={match.homeTeam.name} className="w-4 h-4 mr-2" />
+            <span className='text-xs'>{match.homeTeam.shortName}</span>
+            <span className=" text-xs mx-2">vs</span>
+            <img src={match.awayTeam.logoUrl} alt={match.awayTeam.name} className="w-4 h-4 mr-2" />
+            <span className='text-xs'>{match.awayTeam.shortName}</span>
           </div>
           <div className='w-full flex justify-center '>
            
@@ -119,6 +119,7 @@ const FootballScore: React.FC = () => {
           <p className='text-xs'>Stage: {match.stage}</p>
         </div>
       ))}
+      </div>
     </div>
   );
 };
