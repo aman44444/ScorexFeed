@@ -58,7 +58,7 @@ const TennisScoreCard: React.FC = () => {
         {loading ? "Fetching..." : "Tennis Score"}
       </button>
 
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-gray-500">{error}</p>}
     <div className="flex flex-col justify-center items-center">
       {matches.length > 0 &&
         matches.map((match, index) => {
