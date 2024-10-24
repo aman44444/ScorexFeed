@@ -12,6 +12,19 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        dela: ['var(--font-dela-gothic-one)', 'sans-serif'],
+        cinzel: ['Cinzel', 'serif'],
+      },
+      animation: {
+        'spin-once': 'spin 1s ease-in-out 1' // Spin animation for one full rotation
+      },
+      keyframes: {
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
     },
   },
   plugins: [],
